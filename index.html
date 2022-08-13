@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>puntajes truco</title>
+</head>
+<body>
+    <div class="contenedor-app">
+        <div class="contenedor-puntaje">
+            <h1>¿A cuantos puntos la partida?</h1>
+            <button id="15">15 puntos</button>
+            <button id="30">30 puntos</button>
+        </div>
+        <div class="tablero-15">
+            <div class="nosotros">
+                <h1>Nosotros</h1>
+                <div class="caja" id="1"><div></div></div>
+                <div class="caja" id="2"><div></div></div>
+                <div class="caja" id="3"><div></div></div>
+                <div class="botones-nosotros">
+                    <button class="sumar-nosotros">Sumar punto nosotros</button>
+                    <button class="restar-nosotros">Borrar punto nosotros</button>
+                </div>
+            </div>
+            <div class="ellos">
+                <h1>Ellos</h1>
+                <div class="caja" id="1"><div></div></div>
+                <div class="caja" id="2"><div></div></div>
+                <div class="caja" id="3"><div></div></div>
+                <div class="botones-ellos">
+                    <button class="sumar-ellos">Sumar punto ellos</button>
+                    <button class="restar-ellos">Borrar punto ellos</button>
+                </div>
+            </div>
+        </div>
+        <div class="tablero-30"></div>
+    </div>        
+    <script src="script.js"></script>    
+</body>
+</html>
