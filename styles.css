@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 html {
@@ -13,10 +14,11 @@ html {
 }
 
 body {
-    background: #ececec;
+    background: #dbdbdb;
 }
 
 .contenedor-app {
+    position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -36,11 +38,12 @@ body {
     margin-bottom: 3rem;
     font-size: 3rem;
     text-align: center;
+    color: #202020;
 }
 
 .contenedor-puntaje button {
     padding: .8rem 1.2rem;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     background: var(--azul);
     color: #fff;
     border-radius: .5rem;
@@ -54,7 +57,7 @@ body {
     width: 100%;
     max-width: 800px;
     margin: 3rem;
-    background: #dfdfdf;
+    background: #3b3b3b;
     border-radius: 10px;
     box-shadow: 1px 1px 0 0 #88868694;
     padding: 3rem 0;
@@ -69,6 +72,7 @@ body {
 .nosotros h1, .ellos h1 {
     text-align: center;
     padding: 2rem;
+    color: #fff;
     margin-bottom: 3rem;
     font-size: 2rem;
     font-weight: 200;
@@ -129,15 +133,50 @@ body {
 }
 
 
-
-
-
-.tablero-30 {
+.contenedor-seGano {
     display: none;
-    width: 10px;
-    height: 100px;
-    background: #f6f;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000000a8;
+    justify-content: center;
+    align-items: center;
 }
+
+.seGano {
+    padding: 4rem 5rem;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.seGano h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 200;
+}
+
+.seGano p {
+    font-weight: 300;
+    font-size: 2.5rem;
+    color: #3b3b3b;
+}
+
+.seGano button {
+    border-radius: 3px;
+    margin-top: 2rem;
+    padding: .5rem 1rem;
+    background: #fff;
+    color: var(--azul);
+    border: 1px solid var(--azul);
+    cursor: pointer;
+}
+
+
+
+
+
+
 
 
 
@@ -167,4 +206,11 @@ body {
     width: 63px;
     border-top: 3px solid var(--azul);
     transform: rotate(45deg);
+}
+
+
+@media screen and (max-width: 500px) {
+    .tablero-15 {
+        margin: 0;
+    }
 }
