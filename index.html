@@ -9,49 +9,65 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     
+    <script src="https://kit.fontawesome.com/56af8815be.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="styles.css">
 
 
-    <title>puntajes truco</title>
+    <title>Anotador truco</title>
 </head>
 <body>
+    <h1 class="titulo">Anotador para <span style="color:#0a7229c2">truco</span></h1>
     <div class="contenedor-app">
+        
         <div class="contenedor-puntaje">
             <h1>¿A cuantos puntos la partida?</h1>
             <button id="15">15 puntos</button>
             <button id="30">30 puntos</button>
         </div>
-        <div class="tablero-15">
+        <div class="tablero">
             <div class="nosotros">
                 <h1>Nosotros</h1>
-                <div class="caja" id="1"><div></div></div>
-                <div class="caja" id="2"><div></div></div>
-                <div class="caja" id="3"><div></div></div>
+                <div class="nosotros-malas">
+                    <h3 class="titulo-malas">MALAS</h3>
+                    <div class="caja" id="1"><div></div></div>
+                    <div class="caja" id="2"><div></div></div>
+                    <div class="caja" id="3"><div></div></div>
+                </div>
+                <div class="nosotros-buenas">
+                    <h3 class="titulo-buenas">BUENAS</h3>
+                </div>
                 <div class="botones-nosotros">
                     <button class="sumar-nosotros">Sumar punto nosotros</button>
                     <button class="restar-nosotros">Borrar punto nosotros</button>
                 </div>
+                
             </div>
             <div class="ellos">
                 <h1>Ellos</h1>
-                <div class="caja" id="1"><div></div></div>
-                <div class="caja" id="2"><div></div></div>
-                <div class="caja" id="3"><div></div></div>
+                <div class="ellos-malas">
+                    <div class="caja" id="1"><div></div></div>
+                    <div class="caja" id="2"><div></div></div>
+                    <div class="caja" id="3"><div></div></div>
+                </div>
+                <div class="ellos-buenas">
+                    
+                </div>
                 <div class="botones-ellos">
                     <button class="sumar-ellos">Sumar punto ellos</button>
                     <button class="restar-ellos">Borrar punto ellos</button>
                 </div>
+                
             </div>
-        </div>
-        <dir class="contenedor-seGano">
-            <div class="seGano">
-                <h1>¡Felicitaciones!</h1>
-                <p></p>
-                <button>Jugar revancha</button>
-            </div>
-        </dir>
-        <div class="tablero-30"></div>
+        </div>            
     </div>        
+    <div class="contenedor-seGano">
+        <div class="seGano">
+            <h1>¡Felicitaciones!</h1>
+            <p></p>
+            <button>Jugar revancha</button>
+        </div>
+    </div>
     <script src="script.js"></script>    
 </body>
 </html>

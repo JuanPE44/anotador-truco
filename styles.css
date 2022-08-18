@@ -1,5 +1,6 @@
 :root {
     --azul: #06f;
+    --tablero: #3b3b3b;
 }
 
 * {
@@ -7,6 +8,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
 }
 
 html {
@@ -14,22 +19,41 @@ html {
 }
 
 body {
+    position: relative;
     background: #dbdbdb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .contenedor-app {
     position: relative;
+    flex-grow: 1;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background: #202020;
+}
+
+.titulo {
+    text-align: center;
+    width: 100%;
+    font-size: 3rem;
+    font-weight: 300;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #0a7229c2;
+    
 }
 
 .contenedor-puntaje {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 18rem;
 }
 
 .contenedor-puntaje h1 {
@@ -38,11 +62,12 @@ body {
     margin-bottom: 3rem;
     font-size: 3rem;
     text-align: center;
-    color: #202020;
+    color: #fff;
 }
 
 .contenedor-puntaje button {
     padding: .8rem 1.2rem;
+    margin-bottom: 15rem;
     font-size: 1.8rem;
     background: var(--azul);
     color: #fff;
@@ -52,12 +77,12 @@ body {
     cursor: pointer;
 }
 
-.tablero-15 {
+.tablero {
     display: none;
     width: 100%;
     max-width: 800px;
     margin: 3rem;
-    background: #3b3b3b;
+    background: var(--tablero);
     border-radius: 10px;
     box-shadow: 1px 1px 0 0 #88868694;
     padding: 3rem 0;
@@ -85,21 +110,20 @@ body {
 }
 
 .caja {
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     margin: 10px auto;    
     border-radius: 3px;
     position: relative;
 }
 
 .botones-nosotros, .botones-ellos {
-    margin-top: 3rem;
     padding: 2rem;
     width: 100%;
-    border-top: .3rem dashed #b6b5b5;
+    
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     flex-direction: column;
 }
 
@@ -119,6 +143,7 @@ body {
 .restar-nosotros  {
     border: 1px solid #e75f5f;
     color: #e75f5f;
+    background: var(--tablero);
 }
 
 .sumar-ellos {
@@ -130,6 +155,7 @@ body {
 .restar-ellos  {
     border: 1px solid #e75f5f;
     color: #e75f5f;
+    background: var(--tablero);
 }
 
 
@@ -154,6 +180,7 @@ body {
     font-size: 4rem;
     margin-bottom: 1rem;
     font-weight: 200;
+    color: #198754;
 }
 
 .seGano p {
@@ -172,14 +199,56 @@ body {
     cursor: pointer;
 }
 
+.nosotros-malas, .nosotros-buenas {
+    position: relative;
+}
 
+.nosotros-buenas, .nosotros-malas, .ellos-buenas, .ellos-malas {
+    padding: 2rem;
+}
 
+.nosotros-buenas {
+    position: relative;
+    flex: 1;       
+    border-top: .3rem dashed #b6b5b5;
+}
 
+.titulo-malas, .titulo-buenas {
+    position: absolute;
+    font-size: 2rem;
+    color: transparent;
+    transform: rotate(270deg);
+    top: 35%;
+    left: -4rem;
+}
 
+.titulo-buenas {
+    top: 50%;
+}
 
+.ellos-buenas {
+    position: relative;
+    flex: 1;    
+    
+    border-top: .3rem dashed #b6b5b5;
+}
 
+@media screen and (max-width: 600px) {
+     
 
+    .tablero-15 {
+        margin: 0;
+        border-radius: 0;
+    }
 
+    .botones-nosotros, .botones-ellos {
+        padding: 2rem 0;
+    }
+
+    .botones-nosotros button, .botones-ellos button {
+        font-size: 1.3rem;
+    }
+}
 
 
 
@@ -206,11 +275,4 @@ body {
     width: 63px;
     border-top: 3px solid var(--azul);
     transform: rotate(45deg);
-}
-
-
-@media screen and (max-width: 500px) {
-    .tablero-15 {
-        margin: 0;
-    }
 }

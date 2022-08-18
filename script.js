@@ -1,11 +1,14 @@
 
 const contPuntaje = document.querySelector('.contenedor-puntaje');
-const tablero15 = document.querySelector('.tablero-15');
-const tablero30 = document.querySelector('.tablero-30');
+const tablero = document.querySelector('.tablero');
 const boton15 = document.getElementById(15);
 const boton30 = document.getElementById(30);
 const seGano = document.querySelector('.contenedor-seGano');
 const btnSeGano = document.querySelector('.seGano button');
+const nosotrosBuenas = document.querySelector('.nosotros-buenas');
+const ellosBuenas = document.querySelector('.ellos-buenas');
+const tituloMalas = document.querySelector('.titulo-malas');
+const tituloBuenas = document.querySelector('.titulo-buenas');
 
 let seJuega15 = false;
 let seJuega30 = false;
@@ -15,33 +18,39 @@ let puntosEllos = 0;
 let puntosCajaNosotros = 0;
 let puntosCajaEllos = 0;
 let ganador = false;
+let entroBuenas = false;
 
+
+// determina si la partida se juega a 15 puntos o a 30
 
 const cantidadDePuntos = () => {
     
     boton15.addEventListener('click', (e) => {
         contPuntaje.style.display = 'none';
-        tablero15.style.display = 'flex';
+        tablero.style.display = 'flex';
         seJuega15 = true;
     })
     
     boton30.addEventListener('click', (e) => {
         contPuntaje.style.display = 'none';
-        tablero30.style.display = 'flex';
+        tablero.style.display = 'flex';
         seJuega30 = true;
+        tituloMalas.style.color = '#575757';
     })    
 }
+
+
+// al hacer click en sumar punto se pinta la caja segun cuantos puntos va
 
 const pintarCaja = (quien, puntos, nosotros) => {
     nosotros ? puntosCajaNosotros++ : puntosCajaEllos++;
     nosotros ? puntosCaja = puntosCajaNosotros : puntosCaja = puntosCajaEllos;
-    console.log(puntosCaja)
     
     document.querySelectorAll(quien).forEach(caja => {
         
         
         
-        if((caja.id == 1 && puntos>=0) || (caja.id == 2 && puntos>5) || (caja.id == 3 && puntos>10)) {
+        if((caja.id == 1 && puntos>=0) || (caja.id == 2 && puntos>5) || (caja.id == 3 && puntos>10) || (caja.id == 4 && puntos>15) || (caja.id == 5 && puntos>20) || (caja.id == 6 && puntos>25)) {
           
             switch(puntosCaja) {
                 case 1: caja.classList.add('border-top');
@@ -63,6 +72,9 @@ const pintarCaja = (quien, puntos, nosotros) => {
     
 }
 
+
+// se despinta la caja al hacer click en restar punto 
+
 const despintarCaja = (quien, puntos, nosotros) => {
     
     nosotros ? puntosCajaNosotros-- : puntosCajaEllos--;
@@ -72,7 +84,7 @@ const despintarCaja = (quien, puntos, nosotros) => {
     
     document.querySelectorAll(quien).forEach(caja => {
                         
-        if((caja.id == 1 && puntos<5) || (caja.id == 2 && puntos>=5 && puntos<10) || (caja.id == 3 && puntos>=10 && puntos<15)) {
+        if((caja.id == 1 && puntos<5) || (caja.id == 2 && puntos>=5 && puntos<10) || (caja.id == 3 && puntos>=10 && puntos<15) ||  (caja.id == 4 && puntos>=15 && puntos<20) ||  (caja.id == 5 && puntos>=20 && puntos<25) ||  (caja.id == 6 && puntos>=25 && puntos<30)) {
           
             switch(puntosCaja+1) {
                 case 1: caja.classList.remove('border-top');
@@ -93,14 +105,21 @@ const despintarCaja = (quien, puntos, nosotros) => {
     
 }
 
+
+// se suman los puntos de nosotros
+
 const sumarNosotros = () => {
     document.querySelector('.sumar-nosotros').addEventListener('click', (e) => {
         puntosNosotros++;
         ganar(puntosNosotros, true)
         pintarCaja('.nosotros .caja',puntosNosotros, true)
+        tableroBuenas();
     });     
      
 }
+
+
+//se restan los puntos de nosotros
 
 const restarNosotros = () => {
     document.querySelector('.restar-nosotros').addEventListener('click', (e) => {
@@ -110,14 +129,21 @@ const restarNosotros = () => {
     });      
 }
 
+
+// se suman los puntos de ellos
+
 const sumarEllos = () => {
     document.querySelector('.sumar-ellos').addEventListener('click', (e) => {
         puntosEllos++;
         ganar(puntosEllos, false)
         pintarCaja('.ellos .caja',puntosEllos, false) 
+        tableroBuenas();
     });      
     
 }
+
+
+// se restan los puntos de ellos
 
 const restarEllos = () => {
     document.querySelector('.restar-ellos').addEventListener('click', (e) => {
@@ -128,11 +154,12 @@ const restarEllos = () => {
 }
 
 
+// determina si se gano la partida
+
 const ganar = (puntos, nosotros) => {
     if(seJuega15) {
         if(puntos == 15) {
             const p = document.querySelector('.seGano p');
-
             ganador = true;        
             seGano.style.display = 'flex';            
             p.innerHTML = `${nosotros ? 'Ganamos nosotros' : 'Ganaron ellos'} ${nosotros ? puntosNosotros: puntosEllos} a ${!nosotros ? puntosNosotros: puntosEllos}`;
@@ -140,10 +167,16 @@ const ganar = (puntos, nosotros) => {
     }
     if(seJuega30) {
         if(puntos == 30) {
-            ganador = true;
+            const p = document.querySelector('.seGano p');
+            ganador = true;        
+            seGano.style.display = 'flex';            
+            p.innerHTML = `${nosotros ? 'Ganamos nosotros' : 'Ganaron ellos'} ${nosotros ? puntosNosotros: puntosEllos} a ${!nosotros ? puntosNosotros: puntosEllos}`;
         } 
     }
 }
+
+
+// elimina todas las clases de las cajas
 
 const sacarClases = () => {
     document.querySelectorAll('.caja').forEach(caja => {
@@ -152,20 +185,71 @@ const sacarClases = () => {
     })
 }
 
+
+// elimina el elemento por id
+
+const removerId = (id) => {
+    var element = document.getElementById(id);
+    return element.parentNode.removeChild(element);
+}
+
+
+// restablece todos los valores por defecto, para volver a jugar 
+
 const reiniciar = () => {
     btnSeGano.addEventListener('click', (e)=> {
         puntosNosotros = 0;
         puntosEllos = 0;
         puntosCajaNosotros = 0;
         puntosCajaEllos = 0;
+        entroBuenas = false;
         ganador = false;
         seGano.style.display = 'none';  
         sacarClases()
+        removerId(4);
+        removerId(4);
+        removerId(5);
+        removerId(5);        
+        removerId(6);
+        removerId(6);
+        tituloBuenas.style.color = 'transparent';
     });
 }
 
 
+// si se juega a 30 puntos y se pasan los 15 puntos agrega el tablero de buenas
 
+const tableroBuenas = () => {  
+        
+    if(seJuega30 === true && (puntosNosotros>=15 || puntosEllos>=15) && entroBuenas === false) {
+        tituloBuenas.style.color = '#575757';
+        entroBuenas = true;
+        for(i=4;i<=6;i++) {
+            console.log('entro')
+            const caja = document.createElement('div');
+            const div = document.createElement('div');
+            caja.id = i;
+            caja.classList.add('caja');
+            caja.appendChild(div);
+            nosotrosBuenas.appendChild(caja);   
+                        
+        }
+
+        for(i=4;i<=6;i++) {
+            console.log('entro')
+            const caja = document.createElement('div');
+            const div = document.createElement('div');
+            caja.id = i;
+            caja.classList.add('caja');
+            caja.appendChild(div);               
+            ellosBuenas.appendChild(caja);          
+        }
+    }
+       
+}
+
+
+// funcion que ejecuta todo
 
 const god = () => {
     cantidadDePuntos();
@@ -177,3 +261,4 @@ const god = () => {
 }
 
 god();
+
