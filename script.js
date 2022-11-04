@@ -48,10 +48,7 @@ const pintarCaja = (quien, puntos, nosotros) => {
     
     document.querySelectorAll(quien).forEach(caja => {
         
-        
-        
         if((caja.id == 1 && puntos>=0) || (caja.id == 2 && puntos>5) || (caja.id == 3 && puntos>10) || (caja.id == 4 && puntos>15) || (caja.id == 5 && puntos>20) || (caja.id == 6 && puntos>25)) {
-          
             switch(puntosCaja) {
                 case 1: caja.classList.add('border-top');
                 break;
@@ -63,13 +60,10 @@ const pintarCaja = (quien, puntos, nosotros) => {
                 break;
                 case 5: caja.firstElementChild.classList.add('border-center'); 
                         nosotros ? puntosCajaNosotros = 0 : puntosCajaEllos = 0;                                                                                                               
-                break;
-                              
+                break;                              
             }  
-        }
-              
-    })
-    
+        }              
+    })    
 }
 
 
@@ -123,9 +117,10 @@ const sumarNosotros = () => {
 
 const restarNosotros = () => {
     document.querySelector('.restar-nosotros').addEventListener('click', (e) => {
-        puntosNosotros--;
-        
-        despintarCaja('.nosotros .caja',puntosNosotros, true)
+        if(puntosNosotros>0) {
+            puntosNosotros--;        
+            despintarCaja('.nosotros .caja',puntosNosotros, true)
+        }
     });      
 }
 
@@ -147,9 +142,10 @@ const sumarEllos = () => {
 
 const restarEllos = () => {
     document.querySelector('.restar-ellos').addEventListener('click', (e) => {
-        puntosEllos--;
-        
-        despintarCaja('.ellos .caja',puntosEllos, false) 
+        if(puntosEllos>0) {
+            puntosEllos--;        
+            despintarCaja('.ellos .caja',puntosEllos, false) 
+        }
     });      
 }
 

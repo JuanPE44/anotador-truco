@@ -128,31 +128,35 @@ body {
 }
 
 .botones-nosotros button, .botones-ellos button {
-    padding: .5rem 1rem;
+    padding: 1.5rem 2rem;
     font-size: 1.8rem;
     border-radius: 3px;
     cursor: pointer;
 }
 
 .sumar-nosotros {
+    width: 100%;
     background: #198754;
     color: #fff;
     border: none;
 }
 
 .restar-nosotros  {
+    width: 100%;
     border: 1px solid #e75f5f;
     color: #e75f5f;
     background: var(--tablero);
 }
 
 .sumar-ellos {
+    width: 100%;
     background: #6c757d;
     color: #fff;
     border: none;
 }
 
 .restar-ellos  {
+    width: 100%;
     border: 1px solid #e75f5f;
     color: #e75f5f;
     background: var(--tablero);
