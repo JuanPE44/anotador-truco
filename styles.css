@@ -50,9 +50,9 @@ body {
   top: 50%;
   transform: translateY(-50%);
   margin-left: 2rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1rem;
+  width: 3.3rem;
+  height: 3.3rem;
+  font-size: 1.8rem;
   color: #fff;
   background: #0a7229c2;
   cursor: pointer;
@@ -266,6 +266,12 @@ body {
 }
 
 @media screen and (max-width: 600px) {
+  .btn-atras {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+
   .titulo {
     font-size: 2rem;
   }
