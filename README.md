@@ -1,6 +1,6 @@
 ## Página de Anotación de Puntos del Truco
 
-Este proyecto consiste en una página web para anotar los puntos del juego de truco, donde se puede elegir si anotar en una partida a 15 puntos o a 30 puntos.
+Este proyecto lo realice cuando estaba entrando al mundo de javascript, consiste en una página web para anotar los puntos del juego de truco, donde se puede elegir si anotar en una partida a 15 puntos o a 30 puntos.
 
 ### Demostración
 
